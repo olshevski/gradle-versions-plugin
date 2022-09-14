@@ -1,6 +1,6 @@
 plugins {
     `java`
-    id("dev.olshevski.versions") version "1.0-SNAPSHOT"
+    id("dev.olshevski.versions") version "1.0.0"
 }
 
 dependencies {

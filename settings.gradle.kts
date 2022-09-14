@@ -15,4 +15,3 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "gradle-versions-plugin"
-include(":gradle-versions-plugin")
