@@ -1,0 +1,7 @@
+.gradle
+.DS_Store
+/build
+.idea/*
+*.iml
+!.idea/codeStyles
+!.idea/inspectionProfiles
