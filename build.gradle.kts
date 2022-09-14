@@ -5,8 +5,17 @@ plugins {
     id("com.gradle.plugin-publish") version "1.0.0-rc-1"
 }
 
+tasks.test {
+    useJUnitPlatform()
+}
+
 dependencies {
     implementation("com.github.ben-manes:gradle-versions-plugin:0.42.0")
+
+    val junitVersion = "5.9.0"
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    testImplementation("com.google.truth:truth:1.1.3")
 }
 
 gradlePlugin {
