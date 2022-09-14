@@ -15,7 +15,7 @@ gradlePlugin {
             id = "dev.olshevski.versions"
             implementationClass = "dev.olshevski.versions.VersionsPlugin"
             displayName = "Gradle Versions Plugin"
-            description = "Default configuration for Ben Manes' Gradle Versions plugin"
+            description = "Default configuration for Ben Manes' Gradle Versions Plugin"
         }
     }
 }
