@@ -17,7 +17,7 @@ tasks.test {
 }
 
 dependencies {
-    implementation("com.github.ben-manes:gradle-versions-plugin:0.44.0")
+    implementation("com.github.ben-manes:gradle-versions-plugin:0.45.0")
 
     val junitVersion = "5.9.0"
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
