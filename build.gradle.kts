@@ -1,9 +1,12 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     `java-gradle-plugin`
     `maven-publish`
     signing
-    kotlin("jvm") version "1.7.10"
-    id("com.gradle.plugin-publish") version "1.0.0-rc-1"
+    kotlin("jvm") version "1.8.10"
+    id("com.gradle.plugin-publish") version "1.1.0"
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
 }
 
@@ -12,8 +15,13 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
-tasks.test {
-    useJUnitPlatform()
+tasks {
+    withType<KotlinCompile> {
+        compilerOptions.jvmTarget.set(JvmTarget.JVM_1_8)
+    }
+    test {
+        useJUnitPlatform()
+    }
 }
 
 dependencies {
@@ -34,21 +42,19 @@ nexusPublishing {
     }
 }
 
+@Suppress("UnstableApiUsage")
 gradlePlugin {
+    website.set("https://github.com/olshevski/gradle-versions-plugin")
+    vcsUrl.set("https://github.com/olshevski/gradle-versions-plugin")
     plugins {
         create("versionsPlugin") {
             id = "dev.olshevski.versions"
             implementationClass = "dev.olshevski.versions.VersionsPlugin"
             displayName = "Gradle Versions Plugin"
             description = "Default configuration for Ben Manes' Gradle Versions Plugin"
+            tags.set(listOf("dependencies", "versions", "updates"))
         }
     }
-}
-
-pluginBundle {
-    website = "https://github.com/olshevski/gradle-versions-plugin"
-    vcsUrl = "https://github.com/olshevski/gradle-versions-plugin"
-    tags = listOf("dependencies", "versions", "updates")
 }
 
 publishing {
