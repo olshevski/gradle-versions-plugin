@@ -7,7 +7,7 @@ plugins {
     signing
     kotlin("jvm") version "1.8.10"
     id("com.gradle.plugin-publish") version "1.1.0"
-    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
+    id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
 }
 
 java {
@@ -25,7 +25,7 @@ tasks {
 }
 
 dependencies {
-    implementation("com.github.ben-manes:gradle-versions-plugin:0.45.0")
+    implementation("com.github.ben-manes:gradle-versions-plugin:0.46.0")
 
     val junitVersion = "5.9.0"
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
