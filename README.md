@@ -6,6 +6,6 @@ To use it just add:
 
 ```kotlin
 plugins {
-    id("dev.olshevski.versions") version "1.0.4"
+    id("dev.olshevski.versions") version "1.0.5"
 }
 ```
