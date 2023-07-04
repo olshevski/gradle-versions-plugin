@@ -1,3 +1,4 @@
+import org.gradle.model.internal.core.ModelNodes.withType
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -5,8 +6,8 @@ plugins {
     `java-gradle-plugin`
     `maven-publish`
     signing
-    kotlin("jvm") version "1.8.10"
-    id("com.gradle.plugin-publish") version "1.1.0"
+    kotlin("jvm") version "1.8.21"
+    id("com.gradle.plugin-publish") version "1.2.0"
     id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
 }
 
@@ -25,7 +26,7 @@ tasks {
 }
 
 dependencies {
-    implementation("com.github.ben-manes:gradle-versions-plugin:0.46.0")
+    implementation("com.github.ben-manes:gradle-versions-plugin:0.47.0")
 
     val junitVersion = "5.9.0"
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
@@ -33,12 +34,10 @@ dependencies {
     testImplementation("com.google.truth:truth:1.1.3")
 }
 
-nexusPublishing {
-    repositories {
-        sonatype {
-            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
-            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
-        }
+nexusPublishing.repositories {
+    sonatype {
+        nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
+        snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
     }
 }
 
